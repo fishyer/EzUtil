@@ -6,6 +6,10 @@ properties.load(new FileInputStream(file("../local.properties")))
 def userName = properties.userName
 def password = properties.password
 
+println("userName:" + userName)
+println("password:" + password)
+
+
 def lib_url = properties.lib_url
 def lib_groupId = properties.lib_groupId
 def lib_artifactId = properties.lib_artifactId
