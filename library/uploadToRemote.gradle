@@ -1,11 +1,14 @@
 apply plugin: 'maven'
 
-def userName = 'admin'
-def password = 'admin123'
+Properties properties = new Properties();
+properties.load(new FileInputStream(file("../local.properties")))
 
-def lib_url = "http://fishyer.vipgz1.idcfengye.com/repository/ezutil/"
-def lib_groupId = "com.ezbuy"
-def lib_artifactId = "ezutil"
+def userName = properties.userName
+def password = properties.password
+
+def lib_url = properties.lib_url
+def lib_groupId = properties.lib_groupId
+def lib_artifactId = properties.lib_artifactId
 def lib_version = getGitCommitCount()
 
 println("lib_url:" + lib_url)
