@@ -1,17 +1,13 @@
 apply plugin: 'maven'
 
-Properties properties = new Properties();
-properties.load(new FileInputStream(file("../local.properties")))
-
-def userName = properties.userName
-def password = properties.password
-
-def lib_url = properties.lib_url
-println("lib_url:" + lib_url)
-
-def lib_groupId = properties.lib_groupId
-def lib_artifactId = properties.lib_artifactId
-def lib_version = getGitCommitCount()
+//maven 私服账号
+def userName="admin"
+def password="admin123"
+//maven 仓库
+def lib_url="http://fishyer.vipgz1.idcfengye.com/repository/ezutil/"
+def lib_groupId="com.ezbuy"
+def lib_artifactId=project.name
+def lib_version=getGitCommitCount()
 
 //maven { url "http://fishyer.vipgz1.idcfengye.com/repository/maven-public/"}
 def maven_url = "maven { url \"http://fishyer.vipgz1.idcfengye.com/repository/maven-public/\"}"
