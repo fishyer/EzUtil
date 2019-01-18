@@ -1,20 +1,21 @@
 apply plugin: 'maven'
 
 //maven 私服账号
-def userName="admin"
-def password="admin123"
+def userName = "admin"
+def password = "admin123"
 //maven 仓库
-def lib_url="http://fishyer.vipgz1.idcfengye.com/repository/ezutil/"
-def lib_groupId="com.ezbuy"
-def lib_artifactId=project.name
-def lib_version=getGitCommitCount()
+def lib_url = String.format("http://fishyer.vipgz1.idcfengye.com/repository/%s/", project.name)
+def lib_groupId = "com.ezbuy"
+def lib_artifactId = project.name
+def lib_version = getGitCommitCount()
 
 //maven { url "http://fishyer.vipgz1.idcfengye.com/repository/maven-public/"}
 def maven_url = "maven { url \"http://fishyer.vipgz1.idcfengye.com/repository/maven-public/\"}"
 println(maven_url)
+println(lib_url)
 
 //implementation 'com.ezbuy:ezutil:5'
-def lib_dependency=String.format("implementation '%s:%s:%s'", lib_groupId, lib_artifactId, lib_version)
+def lib_dependency = String.format("implementation '%s:%s:%s'", lib_groupId, lib_artifactId, lib_version)
 println(lib_dependency)
 
 def getGitCommitCount() {
