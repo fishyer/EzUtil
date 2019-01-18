@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply from: "EzbuyUploadToRemote.gradle"
+apply from: "https://gist.githubusercontent.com/fishyer/e2b1bd105b1e123d64e786896b3bcb34/raw/89b091d11c6b47ac05d242e3be9da087578d665d/EzbuyUploadToRemote.gradle"
 
 android {
     compileSdkVersion 28
