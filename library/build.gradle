@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
-apply from: "uploadToRemote.gradle"
+//apply from: "uploadToRemote.gradle"
+apply from: "https://raw.githubusercontent.com/fishyer/EzUtil/master/library/uploadToRemote.gradle"
 
 android {
     compileSdkVersion 28
