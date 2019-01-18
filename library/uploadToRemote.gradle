@@ -6,19 +6,20 @@ properties.load(new FileInputStream(file("../local.properties")))
 def userName = properties.userName
 def password = properties.password
 
-println("userName:" + userName)
-println("password:" + password)
-
-
 def lib_url = properties.lib_url
+println("lib_url:" + lib_url)
+
 def lib_groupId = properties.lib_groupId
 def lib_artifactId = properties.lib_artifactId
 def lib_version = getGitCommitCount()
 
-println("lib_url:" + lib_url)
-println("lib_groupId:" + lib_groupId)
-println("lib_artifactId:" + lib_artifactId)
-println("lib_version:" + lib_version)
+//maven { url "http://fishyer.vipgz1.idcfengye.com/repository/maven-public/"}
+def maven_url = "maven { url \"http://fishyer.vipgz1.idcfengye.com/repository/maven-public/\"}"
+println(maven_url)
+
+//implementation 'com.ezbuy:ezutil:5'
+def lib_dependency=String.format("implementation '%s:%s:%s'", lib_groupId, lib_artifactId, lib_version)
+println(lib_dependency)
 
 def getGitCommitCount() {
     return 'git rev-list HEAD --first-parent --count'.execute().text.trim().toInteger()
