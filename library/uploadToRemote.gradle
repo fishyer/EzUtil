@@ -1,0 +1,37 @@
+apply plugin: 'maven'
+
+def userName = 'admin'
+def password = 'admin123'
+
+def lib_url = "http://fishyer.vipgz1.idcfengye.com/repository/ezutil/"
+def lib_groupId = "com.ezbuy"
+def lib_artifactId = "ezutil"
+def lib_version = getGitCommitCount()
+
+println("lib_url:" + lib_url)
+println("lib_groupId:" + lib_groupId)
+println("lib_artifactId:" + lib_artifactId)
+println("lib_version:" + lib_version)
+
+def getGitCommitCount() {
+    return 'git rev-list HEAD --first-parent --count'.execute().text.trim().toInteger()
+}
+
+uploadArchives {
+    configuration = configurations.archives
+
+    repositories.mavenDeployer {
+        repository(url: lib_url) {
+            authentication(userName: userName, password: password)
+        }
+
+        pom.project {
+            groupId lib_groupId
+            artifactId lib_artifactId
+            version lib_version
+            packaging 'aar'
+            description 'none'
+        }
+    }
+
+}
